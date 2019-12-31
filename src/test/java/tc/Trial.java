@@ -3,13 +3,17 @@ package tc;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 public class Trial 
 {
-	public static void main(String[] args) 
+	@Test
+	public void t_01_TRAIL_GET_PRODUCT()
 	{
 		
 		// I hit "http://localhost:3030/products/9132294
@@ -32,8 +36,9 @@ public class Trial
 		Response _RESP = _REQ_SPEC.when().get("/products/9132294");
 	    ValidatableResponse _VALIDATABLE_RESP = _RESP.then();	
 	    _VALIDATABLE_RESP.assertThat().body("id", equalTo(9132294));  // need to import static org.hamcrest.Matchers.*;
-	    
-		// Above Both the methods are same
+	    // Above Both the methods are same
+	    String body = _RESP.asString();
+		Reporter.log("Product Found Succesfull : " + body);
 	}
 	
 
