@@ -22,7 +22,7 @@ public class TC_GetAllProduct {
 				
 				Assert.assertEquals(actual_status_code, 200);
 				Reporter.log("Get Request for All Product  is Successfull. with body as : " + body);
-				Reporter.log("Get Request for All Product is Successfull. with status code as : " + actual_status_code);
+				Reporter.log("Get Request for All Product is Successfull. With status code as : " + actual_status_code);
 
 				
 	}
