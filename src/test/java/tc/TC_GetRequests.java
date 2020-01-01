@@ -38,4 +38,19 @@ public class TC_GetRequests {
 		
 	}
 	
+		
+	@Test
+	public void t_03_get_request_for_allproduct_sortby_highest_price_descending() {
+		Response resp = given().baseUri(Config.BASE_URL).
+		when().get("/products?$sort[price]=-1").andReturn();
+	
+		
+		int actual_status_code = resp.getStatusCode();
+		String body = resp.asString();
+		
+		Assert.assertEquals(actual_status_code, 200);
+		Reporter.log("Get Request for Product with price sorted in descending order is Successfull. with body as : " + body);
+			
+		
+	}
 }
