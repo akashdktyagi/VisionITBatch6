@@ -20,7 +20,8 @@ public class TC_GetRequests {
 		
 		Assert.assertEquals(actual_status_code, 200);
 		Reporter.log("Health Check is Successfull. with body as : " + body);
-			
+		System.out.println("Response Body is: " + body.toString());
+	
 		
 	}
 	
@@ -34,7 +35,8 @@ public class TC_GetRequests {
 		
 		Assert.assertEquals(actual_status_code, 200);
 		Reporter.log("Get Request for Product with Id is Successfull. with body as : " + body);
-			
+		Reporter.log("Get Request for Product with status code as : " +actual_status_code);
+	
 		
 	}
 	
