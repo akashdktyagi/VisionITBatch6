@@ -8,34 +8,49 @@ import io.restassured.response.Response;
 import utils.Config;
 
 import static io.restassured.RestAssured.*;
-public class TC_GetRequests {
-
-	@Test
+public class TC_GetRequests 
+{
+	//@Test
 	public void t_01_health_check() {
 		Response resp = given().baseUri(Config.BASE_URL).
-		when().get("/healthcheck").andReturn();
-		
+				when().get("/healthcheck").andReturn();
+
 		int actual_status_code = resp.getStatusCode();
 		String body = resp.asString();
-		
+
 		Assert.assertEquals(actual_status_code, 200);
 		Reporter.log("Health Check is Successfull. with body as : " + body);
-			
-		
+		System.out.println("Response Body is: " + body.toString());
+
+
 	}
-	
-	@Test
-	public void t_02_get_request_for_product_with_id() {
-		Response resp = given().baseUri(Config.BASE_URL).
-		when().get("products/9132294").andReturn();
+
+	//@Test
+	public void t_02_get_request_for_product_with_id(){
 		
+		Response resp = given().baseUri(Config.BASE_URL).
+				when().get("products/9132294").andReturn();
+
 		int actual_status_code = resp.getStatusCode();
 		String body = resp.asString();
-		
+
 		Assert.assertEquals(actual_status_code, 200);
 		Reporter.log("Get Request for Product with Id is Successfull. with body as : " + body);
-			
-		
+		Reporter.log("Get Request for Product with status code as : " +actual_status_code);
 	}
-	
+
+	@Test
+	public void t_03_get_all_product_but_only_show_the_name_price_result(){
+		
+		Response resp =given().baseUri(Config.BASE_URL).
+				when().get("/products?$select[]=name&$select[]=price").andReturn();
+
+		int actual_status_code = resp.getStatusCode();
+		String body =resp.asString();
+		
+		Assert.assertEquals(actual_status_code, 200);
+		Reporter.log("Get all product show the name and price in the result : " + body);
+		Reporter.log("Get all product show the name and price in the result " +actual_status_code);
+		System.out.println("Get all product show the name as "+body+"result as"+actual_status_code);
+	}
 }
