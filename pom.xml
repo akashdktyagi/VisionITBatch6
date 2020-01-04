@@ -67,7 +67,7 @@
 				<configuration>
 					<!-- Suite testng xml file to consider for test execution -->
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/TestNgDriver.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/testngproduct.xml</suiteXmlFile>
 					</suiteXmlFiles>
 
 

@@ -178,7 +178,7 @@ public class TC_GetRequests
 
 		String body = resp.asString();
 
-		String actual_city = resp.jsonPath().getString("x.categories[1].id");
+		String actual_city = resp.jsonPath().getString(".categories[1].id");
 		Assert.assertEquals(actual_city, null);
 
 		System.out.println("Get Request for Product with Id  is Successfull. with body as : " + body);
