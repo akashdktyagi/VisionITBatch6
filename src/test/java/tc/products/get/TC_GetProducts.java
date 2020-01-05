@@ -26,7 +26,8 @@ public class TC_GetProducts {
 	@Test
 	public void t_01_get_request_for_all_product()
 	{
-		RequestSpecification resp_spec = given().baseUri(Config.BASE_URL);//Comment new change from jira 40 branch
+		RequestSpecification resp_spec = given().baseUri(Config.BASE_URL);//Comment Sample from temp branch
+
 		
 		Response resp = resp_spec.when().get("products");
 		
