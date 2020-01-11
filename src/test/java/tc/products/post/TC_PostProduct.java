@@ -45,7 +45,7 @@ public class TC_PostProduct
 		Assert.assertEquals(actual_status_code, 201);
 
 		//fetching id from response
-		int id=response.jsonPath().get("id");
+		int id=response.jsonPath().get("/id");
 		System.out.println(id);
 
 
@@ -64,6 +64,8 @@ public class TC_PostProduct
 		//System.out.println("Response body: " + response.body().asString());
 		//Reporter.log("Product creation is Successfull. with body as : " + statusCode); //print body
 
+		
+		//validation
 		//String successCode = response.jsonPath().get("products/9999687");
 		//Assert.assertEquals(successCode, 200);
 
